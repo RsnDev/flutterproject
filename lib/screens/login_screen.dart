@@ -106,19 +106,18 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
 
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/login.png'),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: Center(
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("image/login.jpg"), fit: BoxFit.cover)),
+        child: Center(
           child: SingleChildScrollView(
             child: Container(
-              color: Colors.white,
+              //color: Colors.white,
               child: Padding(
                 padding: const EdgeInsets.all(36.0),
                 child: Form(
@@ -127,14 +126,22 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          const SizedBox(
-                            height: 200,
-                            // child: Image.asset(
-                            //   "assets/icon.png",
-                            //   fit: BoxFit.contain,
-                            // )
+                          const Text(
+                            "Welcome",
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 48),
                           ),
-                          const SizedBox(height: 45),
+                          SizedBox(height: 40),
+                          // const SizedBox(
+                          //   height: 200,
+                          //   // child: Image.asset(
+                          //   //   "assets/icon.png",
+                          //   //   fit: BoxFit.contain,
+                          //   // )
+                          // ),
+                          //const SizedBox(height: 20),
                           emailField,
                           const SizedBox(height: 25),
                           passwordField,
