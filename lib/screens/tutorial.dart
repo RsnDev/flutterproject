@@ -26,11 +26,11 @@ class _TutorialState extends State<Tutorial> {
         height: double.infinity,
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("image/home2.jpg"), fit: BoxFit.cover)),
+                image: AssetImage("image/horse2.jpg"), fit: BoxFit.cover)),
         child: Center(
             child: Text(
           'Tutorial is coming soon',
-          style: TextStyle(fontSize: 50),
+          style: TextStyle(fontSize: 50, color: Colors.white),
         )),
       ),
     );

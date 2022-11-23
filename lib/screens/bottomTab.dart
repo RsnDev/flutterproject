@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:project/model/user_model.dart';
 import 'package:project/screens/myAccount.dart';
 import 'package:project/screens/orderRecord.dart';
-import 'package:project/screens/teamMember.dart';
+import 'package:project/screens/teamReport.dart';
 
 import 'home.dart';
 import 'login_screen.dart';

@@ -195,7 +195,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 SizedBox(
-                  height: 40,
+                  height: 30,
                 ),
                 Text(
                   "Position Tier",
@@ -207,7 +207,8 @@ class _HomeState extends State<Home> {
                 SizedBox(
                   height: 20,
                 ),
-                Column(
+                SingleChildScrollView(
+                    child: Column(
                   children: [
                     Container(
                       height: 100,
@@ -239,19 +240,19 @@ class _HomeState extends State<Home> {
                               image: AssetImage("image/xz.jpg"),
                               fit: BoxFit.cover)),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      height: 95,
-                      width: 330,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage("image/xz.jpg"),
-                              fit: BoxFit.cover)),
-                    )
+                    // SizedBox(
+                    //   height: 10,
+                    // ),
+                    // Container(
+                    //   height: 95,
+                    //   width: 330,
+                    //   decoration: BoxDecoration(
+                    //       image: DecorationImage(
+                    //           image: AssetImage("image/xz.jpg"),
+                    //           fit: BoxFit.cover)),
+                    // )
                   ],
-                )
+                ))
               ],
             )),
       ),
