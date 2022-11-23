@@ -1,38 +1,17 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:project/model/user_model.dart';
+import 'package:project/screens/commision.dart';
+import 'package:project/screens/info.dart';
+import 'package:project/screens/team_mech.dart';
+import 'package:project/screens/tutorial.dart';
 
-import 'login_screen.dart';
-
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<Home> createState() => _HomeState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  User? user = FirebaseAuth.instance.currentUser;
-  UserModel loggedInUser = UserModel();
-
-  int _currentIndex = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    FirebaseFirestore.instance
-        .collection("users")
-        .doc(user!.uid)
-        .get()
-        .then((value) {
-      this.loggedInUser = UserModel.fromMap(value.data());
-      setState(() {});
-    });
-  }
-
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +60,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Colors.white,
                           child: InkWell(
                             splashColor: Colors.yellow,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Tutorial(),
+                                ),
+                              );
+                            },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
@@ -109,7 +95,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Colors.white,
                           child: InkWell(
                             splashColor: Colors.yellow,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Info(),
+                                  ));
+                            },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
@@ -137,7 +129,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Colors.white,
                           child: InkWell(
                             splashColor: Colors.yellow,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => TeamMechanism(),
+                                ),
+                              );
+                            },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
@@ -165,7 +164,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Colors.white,
                           child: InkWell(
                             splashColor: Colors.yellow,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Commision(),
+                                  ));
+                            },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
@@ -188,88 +193,68 @@ class _HomeScreenState extends State<HomeScreen> {
                       //  )
                     ],
                   ),
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                Text(
+                  "Position Tier",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 30),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Column(
+                  children: [
+                    Container(
+                      height: 100,
+                      width: 330,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("image/xz.jpg"),
+                              fit: BoxFit.cover)),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      height: 100,
+                      width: 330,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("image/xz.jpg"),
+                              fit: BoxFit.cover)),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      height: 100,
+                      width: 330,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("image/xz.jpg"),
+                              fit: BoxFit.cover)),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      height: 95,
+                      width: 330,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("image/xz.jpg"),
+                              fit: BoxFit.cover)),
+                    )
+                  ],
                 )
               ],
-            )
-
-            // child: Column(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   crossAxisAlignment: CrossAxisAlignment.center,
-
-            //   children: <Widget>[
-
-            //     // SizedBox(
-            //     //   height: 150,
-            //     //   child: Image.asset("assets/logo.png", fit: BoxFit.contain),
-            //     // ),
-            //     const Text(
-            //       "Welcome to Home",
-            //       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            //     ),
-            //     const SizedBox(
-            //       height: 10,
-            //     ),
-            //     Text(
-            //       "${loggedInUser.firstName} ${loggedInUser.secondName}",
-            //       style: TextStyle(
-            //           color: Colors.black54, fontWeight: FontWeight.w500),
-            //     ),
-            //     Text(
-            //       "${loggedInUser.email}",
-            //       style: TextStyle(
-            //           color: Colors.black54, fontWeight: FontWeight.w500),
-            //     ),
-            //     SizedBox(
-            //       height: 15,
-            //     ),
-            //     ActionChip(
-            //         label: Text("Logout"),
-            //         onPressed: () {
-            //           logout(context);
-            //         }),
-            //   ],
-            // ),
-
-            ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        //selectedFontSize: ,
-        selectedItemColor: Colors.white,
-        type: BottomNavigationBarType.shifting,
-        backgroundColor: Colors.blue,
-        // ignore: prefer_const_literals_to_create_immutables
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: ('Home'),
-              backgroundColor: Colors.blue),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.list),
-              label: ('Order Record'),
-              backgroundColor: Colors.orangeAccent),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.group),
-              label: ('Team Report'),
-              backgroundColor: Colors.pinkAccent),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: ('My Account'),
-              backgroundColor: Colors.greenAccent),
-        ],
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+            )),
       ),
     );
-  }
-
-  // the logout function
-  Future<void> logout(BuildContext context) async {
-    await FirebaseAuth.instance.signOut();
-    Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => LoginScreen()));
   }
 }

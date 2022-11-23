@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../model/user_model.dart';
-import 'home_screen.dart';
+import 'bottomTab.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -189,7 +189,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     );
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.transparent,
       // appBar: AppBar(
       //   backgroundColor: Colors.transparent,
       //   elevation: 0,
@@ -284,7 +284,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
     Navigator.pushAndRemoveUntil(
         (context),
-        MaterialPageRoute(builder: (context) => HomeScreen()),
+        MaterialPageRoute(builder: (context) => BottomTabs()),
         (route) => false);
   }
 }
