@@ -27,11 +27,11 @@ class _TeamMechanismState extends State<TeamMechanism> {
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("image/tm.jpg"), fit: BoxFit.cover)),
-        child: Center(
-            child: Text(
-          'Team Mechanism',
-          style: TextStyle(fontSize: 50),
-        )),
+        // child: Center(
+        //     child: Text(
+        //   'Team Mechanism',
+        //   style: TextStyle(fontSize: 50),
+        // )),
       ),
     );
   }

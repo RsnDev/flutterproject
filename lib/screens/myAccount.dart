@@ -30,40 +30,47 @@ class _MyAccountState extends State<MyAccount> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            // SizedBox(
-            //   height: 150,
-            //   child: Image.asset("assets/logo.png", fit: BoxFit.contain),
-            // ),
-            // const Text(
-            //   "Welcome to Home",
-            //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            // ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              "${loggedInUser.firstName} ${loggedInUser.secondName}",
-              style:
-                  TextStyle(color: Colors.black54, fontWeight: FontWeight.w500),
-            ),
-            Text(
-              "${loggedInUser.email}",
-              style:
-                  TextStyle(color: Colors.black54, fontWeight: FontWeight.w500),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            ActionChip(
-                label: Text("Logout"),
-                onPressed: () {
-                  logout(context);
-                }),
-          ],
+        body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("image/horse2.jpg"), fit: BoxFit.cover)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              // SizedBox(
+              //   height: 150,
+              //   child: Image.asset("assets/logo.png", fit: BoxFit.contain),
+              // ),
+              // const Text(
+              //   "Welcome to Home",
+              //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              // ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                "${loggedInUser.firstName} ${loggedInUser.secondName}",
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+              ),
+              Text(
+                "${loggedInUser.email}",
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              ActionChip(
+                  label: Text("Logout"),
+                  onPressed: () {
+                    logout(context);
+                  }),
+            ],
+          ),
         ),
       );
   // the logout function
